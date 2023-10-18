@@ -9,8 +9,9 @@ df_dropped = df.dropna()
 
 print(df_dropped.head())
 
-call_end = datetime.strptime(df_dropped['CallEnd'], '%H::%M::%S').time()
-call_start = datetime.strptime(df_dropped['CallStart'], '%H::%M::%S').time()
+df_dropped['CallEnd'] = pd.to_datetime(df_dropped['CallEnd'], format='%HH::%MM::%SS')
+df_dropped['CallStart'] = pd.to_datetime(df_dropped['CallStart'], format='%HH::%MM::%SS')
 
-#df_dropped['CallDuration'] = df_dropped['CallEnd'] - df_dropped['CallStart']
+
+df_dropped['CallDuration'] = df_dropped['CallEnd'] - df_dropped['CallStart']
 
