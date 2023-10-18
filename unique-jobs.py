@@ -6,5 +6,5 @@ df = pd.DataFrame(car_insurance)
 
 df_dropped = df.dropna()
 
-print(df_dropped.unique('Job'))
+print(df_dropped['Job'].unique())
 
